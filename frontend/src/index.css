@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html, body, #root { height: 100%; }
+  body {
+    background-color: #070b12;
+    color: #dde4f0;
+    font-family: 'Syne', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #1e2d45; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #2a3d5a; }
+}
+
+@layer components {
+  .glass {
+    @apply bg-card/80 backdrop-blur-sm border border-border;
+  }
+  .btn-primary {
+    @apply bg-accent hover:bg-accent2 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-2 text-sm;
+  }
+  .btn-secondary {
+    @apply bg-surface hover:bg-card text-text border border-border hover:border-border2 font-medium px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-2 text-sm;
+  }
+  .input-field {
+    @apply w-full bg-bg border border-border hover:border-border2 focus:border-accent rounded-lg px-3 py-2 text-sm text-text placeholder-muted outline-none transition-colors duration-200;
+  }
+  .card {
+    @apply bg-card border border-border rounded-xl p-5;
+  }
+  .badge-rising   { @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-green/10 text-green border border-green/20; }
+  .badge-stable   { @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20; }
+  .badge-declining{ @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-muted/10 text-muted border border-muted/20; }
+  .badge-hot      { @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-red/10 text-red border border-red/20; }
+  .badge-emerging { @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-purple/10 text-purple border border-purple/20; }
+}

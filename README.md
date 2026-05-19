@@ -540,13 +540,13 @@ npm run preview    # Preview production build locally
 
 ## 📄 License
 
-MIT License — free for personal and commercial use.
+free for personal and commercial use.
 
 ---
 
 ## 👨‍💻 Author
 
-Built with ❤️ using **FastAPI**, **React**, **MongoDB**, and **Claude AI**.
+Ankush Bisht: Built with ❤️ using **FastAPI**, **React**, **MongoDB**, and **Claude AI**.
 
 ---
 

@@ -546,7 +546,7 @@ free for personal and commercial use.
 
 ## 👨‍💻 Author
 
-Ankush Bisht: Built with ❤️ using **FastAPI**, **React**, **MongoDB**, and **Claude AI**.
+Ankush Bisht: Built with ❤️ using **FastAPI**, **React**, **MongoDB**, and **GROQ_API**.
 
 ---
 

@@ -8,7 +8,6 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688)
 ![MongoDB](https://img.shields.io/badge/MongoDB-7.0-47A248)
 ![Tailwind](https://img.shields.io/badge/TailwindCSS-3.4-38BDF8)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 **An AI-powered platform that tells you which skills are dying, which are rising, and exactly what you need to learn next.**
 

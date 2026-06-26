@@ -54,7 +54,7 @@ async def get_user_data(current: dict = Depends(get_current_user)):
 async def update_skills(body: UserSkillsUpdate, current: dict = Depends(get_current_user)):
     db         = get_db()
     normalized = [normalize_skill(s) for s in body.skills if s.strip()]
-    await db.users.update_one(
+    await db.userRegistration.update_one(
         {"_id": current["_id"]},
         {"$set": {"skills": normalized, "updated_at": datetime.utcnow()}},
     )
@@ -77,7 +77,7 @@ async def get_stats(current: dict = Depends(get_current_user)):
 async def delete_account(current: dict = Depends(get_current_user)):
     db  = get_db()
     uid = str(current["_id"])
-    await db.users.delete_one({"_id": current["_id"]})
+    await db.userRegistration.delete_one({"_id": current["_id"]})
     await db.chats.delete_many({"user_id": uid})
     await db.predictions.delete_many({"user_id": uid})
     return {"message": "Account deleted"}

@@ -77,7 +77,12 @@ export default function AnalyzePage() {
         <div className="text-center py-20 text-muted">
           <Brain size={40} className="mx-auto mb-3 opacity-30" />
           <div className="text-sm font-semibold text-text/60">Enter your skills and click Analyze</div>
-          <div className="text-xs mt-1">Compares against job market using TF-IDF scoring</div>
+          <div className="text-xs mt-1">Compares against job market using TF-IDF scoring</div><br></br>
+          <div className="text-sm font-semibold text-text/60">This Project Is Done By</div>
+          <div className="text-xs mt-1">Ankush Bisht, Aniket Bisht, Shishir Thapa</div><br></br>
+          <div className="text-sm font-semibold text-text/60">Under The Guidence Of:</div>
+          <div className="text-xs mt-1">Nikhil Khandelwal</div>
+          <div className="text-xs mt-1">Rajesh Bhatt</div>
         </div>
       )}
 

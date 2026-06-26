@@ -31,7 +31,7 @@ async def disconnect_db():
 async def _create_indexes():
     """Create performance & uniqueness indexes on startup."""
     # users: unique email
-    await _db.users.create_index("email", unique=True)
+    await _db.userRegistration.create_index("email", unique=True)
     # jobs: compound + text search
     await _db.jobs.create_index([("company", ASCENDING), ("role", ASCENDING)])
     await _db.jobs.create_index([("skills", TEXT), ("role", TEXT), ("company", TEXT)])

@@ -57,11 +57,11 @@ async def health():
     return {"status": "healthy"}
 
 # ── Routers ───────────────────────────────────────────────────────────────
-app.include_router(auth_router,   prefix="/auth",   tags=["Authentication"])
-app.include_router(jobs_router,   prefix="/jobs",   tags=["Jobs"])
-app.include_router(skills_router, prefix="/skills", tags=["Skills"])
-app.include_router(chat_router,   prefix="/chat",   tags=["Chat"])
-app.include_router(user_router,   prefix="/user",   tags=["User"])
+app.include_router(auth_router,   prefix="/api/auth",   tags=["Authentication"])
+app.include_router(jobs_router,   prefix="/api/jobs",   tags=["Jobs"])
+app.include_router(skills_router, prefix="/api/skills", tags=["Skills"])
+app.include_router(chat_router,   prefix="/api/chat",   tags=["Chat"])
+# app.include_router(user_router,   prefix="/user",   tags=["User"])
 
 if __name__ == "__main__":
     import uvicorn

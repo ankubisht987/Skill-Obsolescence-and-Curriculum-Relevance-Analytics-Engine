@@ -82,7 +82,7 @@ export default function ChatPage() {
       <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-surface flex-shrink-0">
         <div>
           <div className="text-sm font-bold text-text">AI Career Advisor</div>
-          <div className="text-xs text-muted">Powered by Claude AI · context-aware</div>
+          <div className="text-xs text-muted">Create By Ankush Aniket Shishir</div>
         </div>
         <button onClick={clearHistory} className="btn-secondary text-xs py-1.5">
           <Trash2 size={12} /> Clear history
@@ -118,6 +118,7 @@ export default function ChatPage() {
             </div>
           </div>
         ))}
+        
 
         {loading && (
           <div className="flex gap-3 animate-fade-up">

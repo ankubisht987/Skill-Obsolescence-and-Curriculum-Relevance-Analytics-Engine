@@ -9,8 +9,9 @@ from datetime import datetime, timedelta
 from typing import Optional, Dict
 import os
 
-SECRET_KEY  = os.getenv("JWT_SECRET", "dev-secret-change-in-prod")
-ALGORITHM   = "HS256"
+# SECRET_KEY  = os.getenv("JWT_SECRET", "dev-secret-change-in-prod")
+SECRET_KEY  = "6ce9bd3c51997f7ccae6d9f6f5f60266dbdce0518582418415e8365af54779a4"
+ALGORITHM = "HS512"
 EXPIRE_DAYS = int(os.getenv("JWT_EXPIRE_DAYS", "7"))
 
 
@@ -31,9 +32,19 @@ def create_token(payload: Dict) -> str:
     return jwt.encode(data, SECRET_KEY, algorithm=ALGORITHM)
 
 
-def decode_token(token: str) -> Optional[Dict]:
-    """Decode and validate JWT; return payload or None."""
+def decode_token(token: str):
     try:
-        return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-    except JWTError:
+        payload = jwt.decode(
+            token,
+            SECRET_KEY,
+            algorithms=[ALGORITHM]
+        )
+
+        print("JWT Payload:", payload)
+
+        return payload
+
+    except JWTError as e:
+        print("JWT Error:", e)
         return None
+    

@@ -221,23 +221,6 @@ export default function Dashboard() {
 
         subtitle={`Welcome back, ${user?.name} — ${jobs.length}+ job listings indexed`}
 
-        actions={
-
-          <button
-
-            onClick={() => navigate('/analyze')}
-
-            className="btn-primary"
-
-          >
-
-            <Zap size={14} />
-
-            Analyze My Skills
-
-          </button>
-
-        }
 
       />
 

@@ -17,7 +17,7 @@ export default function RegisterPage() {
   const submit = async (e) => {
     e?.preventDefault()
     if (!form.name || !form.email || !form.password) return toast.error('Fill in all fields')
-    if (form.password.length < 6) return toast.error('Password must be at least 6 characters')
+    if (form.password.length < 6) return toast.error('Password must be at least 8 characters')
     setLoading(true)
     try {
       await register(form.name, form.email, form.password)

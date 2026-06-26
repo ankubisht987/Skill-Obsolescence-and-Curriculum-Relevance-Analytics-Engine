@@ -1,7 +1,7 @@
 """
 models/schemas.py
 Pydantic v2 schemas for every API request / response.
-Collections: users · jobs · skills · chats · predictions
+Collections:  jobs · skills · chats · predictions
 """
 
 from __future__ import annotations
@@ -25,12 +25,12 @@ class SkillStatus(str, Enum):
 # ── Auth ──────────────────────────────────────────────────────────────────
 
 class UserRegister(BaseModel):
-    name:     str      = Field(..., min_length=2, max_length=100)
-    email:    EmailStr
+    userName:     str      = Field(..., min_length=2, max_length=100)
+    userEmail:    EmailStr
     password: str      = Field(..., min_length=6)
 
 class UserLogin(BaseModel):
-    email:    EmailStr
+    userEmail:    EmailStr
     password: str
 
 class UserOut(BaseModel):

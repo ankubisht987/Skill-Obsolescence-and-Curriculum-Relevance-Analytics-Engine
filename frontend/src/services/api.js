@@ -5,6 +5,8 @@
  */
 
 import axios from 'axios'
+import pythonApi from "./pythonApi";
+import javaApi from "./javaApi";
 
 const api = axios.create({
   baseURL: '/api',
@@ -33,45 +35,52 @@ api.interceptors.response.use(
 
 // ── Auth ──────────────────────────────────────────────────────────────────
 export const authAPI = {
-  register: (data) => api.post('/auth/register', data),
-  login:    (data) => api.post('/auth/login',    data),
-  me:       ()     => api.get('/auth/me'),
+  login: (data) => javaApi.post("/auth/login", data),
+  register: (data) => javaApi.post("/auth/register", data),
+  me: () => javaApi.get("/auth/me"),
 }
 
 // ── Jobs ──────────────────────────────────────────────────────────────────
 export const jobsAPI = {
-  list:      (params) => api.get('/jobs/', { params }),
-  upload:    (file)   => {
-    const fd = new FormData()
-    fd.append('file', file)
-    return api.post('/jobs/upload', fd, { headers: { 'Content-Type': 'multipart/form-data' } })
+  list: (params) => pythonApi.get("/jobs/", { params }),
+
+  upload: (file) => {
+    const fd = new FormData();
+    fd.append("file", file);
+
+    return pythonApi.post("/jobs/upload", fd, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
   },
-  companies: () => api.get('/jobs/companies'),
-  roles:     () => api.get('/jobs/roles'),
-  delete:    (id) => api.delete(`/jobs/${id}`),
-}
+
+  companies: () => pythonApi.get("/jobs/companies"),
+  roles: () => pythonApi.get("/jobs/roles"),
+  delete: (id) => pythonApi.delete(`/jobs/${id}`),
+};
 
 // ── Skills ────────────────────────────────────────────────────────────────
 export const skillsAPI = {
-  analyze: (data) => api.post('/skills/analyze', data),
-  predict: (data) => api.post('/skills/predict', data),
-  trends:  ()     => api.get('/skills/trends'),
-  top:     (n)    => api.get('/skills/top', { params: { limit: n || 20 } }),
+  analyze: (data) => pythonApi.post('/skills/analyze', data),
+  predict: (data) => pythonApi.post('/skills/predict', data),
+  trends:  ()     => pythonApi.get('/skills/trends'),
+  top:     (n)    => pythonApi.get('/skills/top', { params: { limit: n || 20 } }),
 }
 
 // ── Chat ──────────────────────────────────────────────────────────────────
 export const chatAPI = {
-  send:         (message) => api.post('/chat/message', { message }),
-  history:      ()        => api.get('/chat/history'),
-  clearHistory: ()        => api.delete('/chat/history'),
+  send:         (message) => pythonApi.post('/chat/message', { message }),
+  history:      ()        => pythonApi.get('/chat/history'),
+  clearHistory: ()        => pythonApi.delete('/chat/history'),
 }
 
 // ── User ──────────────────────────────────────────────────────────────────
 export const userAPI = {
-  data:         ()       => api.get('/user/data'),
-  updateSkills: (skills) => api.put('/user/skills', { skills }),
-  stats:        ()       => api.get('/user/stats'),
-  deleteAccount:()       => api.delete('/user/account'),
+  data:         ()       => pythonApi.get('/user/data'),
+  updateSkills: (skills) => pythonApi.put('/user/skills', { skills }),
+  stats:        ()       => pythonApi.get('/user/stats'),
+  deleteAccount:()       => pythonApi.delete('/user/account'),
 }
 
 export default api

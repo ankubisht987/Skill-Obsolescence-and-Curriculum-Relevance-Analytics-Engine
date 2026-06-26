@@ -14,33 +14,64 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)   // initial session restore
 
   // Restore session from localStorage
-  useEffect(() => {
-    const storedToken = localStorage.getItem('se_token')
-    const storedUser  = localStorage.getItem('se_user')
-    if (storedToken && storedUser) {
-      setToken(storedToken)
-      setUser(JSON.parse(storedUser))
-      // Verify token is still valid
-      authAPI.me()
-        .then(r => { setUser(r.data); localStorage.setItem('se_user', JSON.stringify(r.data)) })
-        .catch(() => { logout() })
-        .finally(() => setLoading(false))
-    } else {
-      setLoading(false)
-    }
-  }, [])
+  // useEffect(() => {
+  //   const storedToken = localStorage.getItem('se_token')
+  //   const storedUser  = localStorage.getItem('se_user')
+  //   if (storedToken && storedUser) {
+  //     setToken(storedToken)
+  //     setUser(JSON.parse(storedUser))
+  //     // Verify token is still valid
+  //     authAPI.me()
+  //       .then(r => { setUser(r.data); localStorage.setItem('se_user', JSON.stringify(r.data)) })
+  //       .catch(() => { logout() })
+  //       .finally(() => setLoading(false))
+  //   } else {
+  //     setLoading(false)
+  //   }
+  // }, [])
 
-  const login = async (email, password) => {
-    const { data } = await authAPI.login({ email, password })
-    setToken(data.access_token)
-    setUser(data.user)
-    localStorage.setItem('se_token', data.access_token)
-    localStorage.setItem('se_user',  JSON.stringify(data.user))
-    return data
+
+  useEffect(() => {
+  const storedToken = localStorage.getItem("se_token");
+
+  if (storedToken) {
+    setToken(storedToken);
   }
 
+  setLoading(false);
+}, []);
+
+  const login = async (email, password) => {
+
+    const { data } = await authAPI.login({
+        userEmail: email,
+        password: password
+    });
+
+    localStorage.setItem("se_token", data.token);
+
+    setToken(data.token);
+
+    // Temporary user object
+    const currentUser = {
+        email: email
+    };
+
+    setUser(currentUser);
+
+    localStorage.setItem(
+        "se_user",
+        JSON.stringify(currentUser)
+    );
+
+    return data;
+}
+
   const register = async (name, email, password) => {
-    await authAPI.register({ name, email, password })
+    await authAPI.register({ 
+      userName :name, 
+      userEmail : email, 
+      password : password })
     return login(email, password)
   }
 

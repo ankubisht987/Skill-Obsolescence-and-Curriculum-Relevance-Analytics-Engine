@@ -1,26 +1,76 @@
-# Environment files
+# =========================
+# Environment Files
+# =========================
 .env
 *.env
 
-# Python
+# =========================
+# Spring Boot / Maven
+# =========================
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# =========================
+# Node.js / React
+# =========================
+node_modules/
+dist/
+build/
+
+# =========================
+# Python (if applicable)
+# =========================
 __pycache__/
 *.pyc
 venv/
 
-# Node.js
-node_modules/
-
-# Build files
-dist/
-build/
-
-# IDE settings
-.vscode/
+# =========================
+# IntelliJ IDEA
+# =========================
 .idea/
+*.iws
+*.iml
+*.ipr
 
+# =========================
+# Eclipse / STS
+# =========================
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# NetBeans
+# =========================
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# =========================
 # Logs
+# =========================
 *.log
 
-# OS files
+# =========================
+# Operating System Files
+# =========================
 .DS_Store
 Thumbs.db

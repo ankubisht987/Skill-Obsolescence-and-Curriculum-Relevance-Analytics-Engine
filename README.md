@@ -4,6 +4,8 @@
 
 ![Version](https://img.shields.io/badge/version-2.5.0-gold)
 ![Python](https://img.shields.io/badge/Python-3.11+-blue)
+![Java](https://img.shields.io/badge/Java-21-blue)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5-green)
 ![React](https://img.shields.io/badge/React-18-61DAFB)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688)
 ![MongoDB](https://img.shields.io/badge/MongoDB-7.0-47A248)

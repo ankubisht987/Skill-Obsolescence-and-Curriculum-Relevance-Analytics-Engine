@@ -185,7 +185,7 @@ skillengine/
 | Tool | Version | Download |
 |---|---|---|
 | Python | 3.11+ | [python.org](https://python.org) |
-| Node.js | 18+ | [nodejs.org](https://nodejs.org) |
+| Spring Boot | 3.5.x | https://spring.io/projects/spring-boot |
 | MongoDB | 7.0+ | [mongodb.com](https://mongodb.com) or Atlas |
 
 ---
